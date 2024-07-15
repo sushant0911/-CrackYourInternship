@@ -11,7 +11,7 @@ public:
         for(int i = 0 ; i < n ; i++){
             index = absolute(nums[i]) - 1;
             
-            if(nums[index] < 0) ans.push_back(absolute(index + 1));
+            if(nums[index] < 0) ans.push_back(index + 1);
             else{
                 nums[index] = nums[index] * (-1);
             }
