@@ -17,6 +17,7 @@ public:
             delete dlt;
         }
         if(head == nullptr) return head;
+        
         ListNode* temp = head;
         while(temp->next != nullptr){
             if(temp->next->val == val){
@@ -25,7 +26,7 @@ public:
                 delete dlt;
             }
             else{
-                temp = temp->next;
+                temp = temp->next;    
             }
             
         }
