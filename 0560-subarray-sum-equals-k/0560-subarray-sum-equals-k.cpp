@@ -10,9 +10,9 @@ public:
         while(i < n){
             prefixSum += nums[i];
             int rem = prefixSum - k;
-            // if(mpp.find(rem) != mpp.end()){
+            if(mpp.find(rem) != mpp.end()){
                 count += mpp[rem];
-            // }
+            }
             mpp[prefixSum]++;
             i++;
         }
