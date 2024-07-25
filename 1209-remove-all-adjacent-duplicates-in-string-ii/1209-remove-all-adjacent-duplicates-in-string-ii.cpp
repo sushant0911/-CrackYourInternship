@@ -14,7 +14,12 @@ public:
         }
         string ans;
         while (!st.empty()) {
-            ans.append(st.top().second, st.top().first);
+            // ans.append(st.top().second, st.top().first);
+            while(st.top().second != 0){
+                ans += st.top().first;
+                st.top().second--;
+            }
+            
             st.pop();
         }
         reverse(ans.begin(), ans.end());
