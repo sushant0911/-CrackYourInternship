@@ -12,26 +12,19 @@
 class Solution {
 public:
     bool hasPathSum(TreeNode* Node, int sum) {
-        if (Node == NULL)
-        return 0;
- 
-    bool ans = 0;
- 
+    if (Node == nullptr)
+        return false;
+
     int subSum = sum - Node->val;
- 
-    /* If we reach a leaf node and sum becomes 0 then return
-     * true*/
-    if (subSum == 0 && Node->left == NULL
-        && Node->right == NULL)
-        return 1;
- 
-    /* otherwise check both subtrees */
-    if (Node->left)
-        ans = ans || hasPathSum(Node->left, subSum);
-    if (Node->right)
-        ans = ans || hasPathSum(Node->right, subSum);
- 
-    return ans;
+
+    // If we reach a leaf node and sum becomes 0 then return true
+    if (subSum == 0 && Node->left == nullptr && Node->right == nullptr)
+        return true;
+
+    // Check both subtrees
+    return hasPathSum(Node->left, subSum) || hasPathSum(Node->right, subSum);
+}
+
         
         //         if(!root) return false;
 //         stack<TreeNode*> path;
@@ -59,5 +52,5 @@ public:
 //             }
 //         }
 //         return false;
-    }
+    // }
 };
