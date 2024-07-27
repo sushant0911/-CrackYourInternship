@@ -13,21 +13,21 @@ class Solution {
 public:
     bool isLeftLeaf(TreeNode* root){
         if(root == nullptr) return false;
-        if(root->left == nullptr && root->right == nullptr) return true;  
+        if(!root->left && !root->right) return true;
         return false;
     }
     
-    void helper(TreeNode* root, int &sum){
-        if(root == nullptr) return;
+    void findSum(TreeNode* root, int &sum){
+        if(root ==  nullptr) return;
         if(isLeftLeaf(root->left)) sum += root->left->val;
-        helper(root->left,sum);
-        helper(root->right,sum);
+        findSum(root->left,sum);
+        findSum(root->right,sum);
         return;
     }
     
     int sumOfLeftLeaves(TreeNode* root) {
-        int sum = 0;
-        helper(root,sum);
+        int sum = 0 ;
+        findSum(root,sum);
         return sum;
     }
 };
