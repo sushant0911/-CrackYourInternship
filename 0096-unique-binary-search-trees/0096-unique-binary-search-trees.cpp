@@ -8,7 +8,8 @@ public:
         for(int i = 1 ; i <= n ; i++){
             ans += solve(i - 1, dp) * solve(n - i, dp);
         }
-        return dp[n] = ans;
+        dp[n] = ans;
+        return dp[n];
     }
     
     int numTrees(int n) {
